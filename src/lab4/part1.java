@@ -8,16 +8,46 @@ import java.util.Scanner;
 
 public class part1 {
     public static void main(String[] args) {
+
 //        task1();
 //        task2();
-//        task3();
-//        task4();
+
+//        int[] numbers = scanner();
+//        boolean isTrue = task3(numbers[0], numbers[1], numbers[2]);
+//        System.out.println("Результат: " + isTrue);
+
+//        int[] numbers = scanner();
+//        boolean isTrue = task4(numbers[0], numbers[1], numbers[2]);
+//        System.out.println("Результат: " + isTrue);
+
 
 //        int[] ArrayTask5 = {1, 2, 3, 4, 5, 3};
-//        task5(ArrayTask5);
+//        boolean isTrue = task5(ArrayTask5);
+//        System.out.println("array = " + Arrays.toString(ArrayTask5) + "\n" + isTrue);
 
-//        int[] ArrayTask6 = {2, 2, 2, 2, 8, 1};
-//        task6(ArrayTask6);
+//        int[] ArrayTask6 = {2, 2, 2, 2, 8, 3};
+//        boolean isTrue = task6(ArrayTask6);
+//
+//        if (isTrue) System.out.println("Массив содержит число 1 или 3.");
+//        else System.out.println("Массив не содержит чисел 1 или 3.");
+    }
+
+    public static int[] scanner () {
+        int[] numbers = new int[3];
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Введите первое число: ");
+        int num1 = scan.nextInt();
+        numbers[0] = num1;
+
+        System.out.println("Введите второе число: ");
+        int num2 = scan.nextInt();
+        numbers[1] = num2;
+
+        System.out.println("Введите третье число: ");
+        int num3 = scan.nextInt();
+        numbers[2] = num3;
+        return numbers;
     }
 
     public static void task1() {
@@ -69,52 +99,25 @@ public class part1 {
         System.out.println("Делится на 3 и на 5: " + Arrays.toString(divBoth));
     }
 
-    public static void task3() {
-        System.out.println("Введите первое число: ");
-
-        Scanner scan = new Scanner(System.in);
-        int num1 = scan.nextInt();
-
-        System.out.println("Введите второе число: ");
-        int num2 = scan.nextInt();
-
-        System.out.println("Введите третье число: ");
-        int num3 = scan.nextInt();
-
+    public static boolean task3(int num1, int num2, int num3) {
         boolean a = num1 + num2 == num3 ? true : false;
-
-        System.out.println("Результат: " + a);
+        return a;
     }
 
-    public static void task4() {
-        System.out.println("Введите первое число: ");
-
-        Scanner scan = new Scanner(System.in);
-        int num1 = scan.nextInt();
-
-        System.out.println("Введите второе число: ");
-        int num2 = scan.nextInt();
-
-        System.out.println("Введите третье число: ");
-        int num3 = scan.nextInt();
-
+    public static boolean task4(int num1, int num2, int num3) {
         boolean a = num1 < num2 && num2 < num3 ? true : false;
-
-        System.out.println("Результат: " + a);
+        return a;
     }
 
-    public static void task5(int[] myArray) {
+    public static boolean task5(int[] myArray) {
         int[] ints = myArray;
         int lastInd = ints.length - 1;
 
-        System.out.println(lastInd);
-        System.out.println(Arrays.toString(ints));
-
         boolean b = ints[0] == 3 || ints[lastInd] == 3 ? true : false;
-        System.out.println(b);
+        return b;
     }
 
-    public static void task6(int[] myArray) {
+    public static boolean task6(int[] myArray) {
         int[] ints = myArray;
         boolean trueNum = false;
 
@@ -124,10 +127,6 @@ public class part1 {
                 break;
             }
         }
-        if (trueNum) {
-            System.out.println("Массив содержит число 1 или 3.");
-        } else {
-            System.out.println("Массив не содержит чисел 1 или 3.");
-        }
+        return trueNum;
     }
 }

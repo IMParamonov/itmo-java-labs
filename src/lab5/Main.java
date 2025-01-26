@@ -5,25 +5,32 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 //        String tex1 = "Тэфи самая лучшая собака на планете";
-//        task1(tex1);
+//        String longestWord = task1(tex1);
+//        System.out.println("Самое длинное слово в тексте: " + "'" + longestWord + "'");
 
 //        String tex2 = "А роза упала на лапу Азора";
-//        task2(tex2);
+//        boolean isTrue = task2(tex2);
+//        if (isTrue) System.out.println("Это палиндром");
+//        else System.out.println("Это не палиндром");
 
-//        String tex3 = "Только бяка не учит Java";
-//        task3(tex3);
+//        String text3 = "Только бяка не учит Java";
+//        String textTarget = "бяка";
+//        String textReplacement = "[ВЫРЕЗАНО ЦЕНЗУРОЙ]";
+//        String replacedText = task3(text3, textTarget, textReplacement);
+//        System.out.println(replacedText);
 
 //        String text1 = "Исходная строка, которая содержит основной текст";
 //        String text2 = "д";
-//        task4(text1, text2);
+//        int count = task4(text1, text2);
+//        System.out.println("Количество вхождений подстроки " + "\"" + text2 + "\": " + count);
 
-        String text5 = "Это тестовый текст";
-        task5(text5);
+//        String text5 = "Это тестовый текст";
+//        String join = task5(text5);
+//        System.out.println("The given string is: " + text5 + "\n" + "The string reversed word by word is: " + join);
+
     }
-    public static void task1(String text1) {
-        String text = text1;
-
-        String[] textArr = text.split(" ");
+    public static String task1(String text1) {
+        String[] textArr = text1.split(" ");
 //        System.out.println(Arrays.toString(textArr));
 
         int length = textArr.length;
@@ -42,21 +49,16 @@ public class Main {
                 indexOfMax = i;
             }
         }
-//        System.out.println(indexOfMax);
-        String s = textArr[indexOfMax];
-        System.out.println("Самое длинное слово в тексте: " + "'" + s + "'");
+        return textArr[indexOfMax];
     }
 
-    public static void task2 (String text2) {
-        String text = text2;
-        System.out.println(text);
-
-        String noSpaceText = text.replaceAll(" ", "").toLowerCase();
-        System.out.println(noSpaceText);
+    public static boolean task2 (String text2) {
+        String noSpaceText = text2.replaceAll(" ", "").toLowerCase();
+//        System.out.println(noSpaceText);
 
         String[] textArr = noSpaceText.split("");
         int length = textArr.length;
-        System.out.println(Arrays.toString(textArr));
+//        System.out.println(Arrays.toString(textArr));
 
         String[] textArrNew = new String[length];
 
@@ -66,24 +68,16 @@ public class Main {
             num++;
             length--;
         }
-        System.out.println(Arrays.toString(textArrNew));
-
+//        System.out.println(Arrays.toString(textArrNew));
         boolean flag = Arrays.equals(textArr, textArrNew);
-        if (flag) System.out.println("Это палиндром");
-        else System.out.println("Это не палиндром");
+        return flag;
     }
 
-    public static void task3 (String text3) {
-        String text = text3;
-        System.out.println(text);
-
-        String replace = text.replace("бяка", "[ВЫРЕЗАНО ЦЕНЗУРОЙ]");
-        System.out.println(replace);
+    public static String task3 (String text3, String textTarget, String textReplacement) {
+        return text3.replace(textTarget, textReplacement);
     }
-    public static void task4 (String text1, String text2) {
-        String textBasic = text1;
-        String textEntry = text2;
-//        System.out.println(textBasic + textEntry);
+
+    public static int task4 (String textBasic, String textEntry) {
         int count = 0;
         int index = 0;
 
@@ -91,14 +85,12 @@ public class Main {
             count++;
             index += textEntry.length();
         }
-        System.out.println("Количество вхождений подстроки " + "\"" + textEntry + "\": " + count);
+        return count;
     }
 
-    public static void task5 (String text5) {
-        String text = text5;
-        System.out.println("The given string is: " + text);
+    public static String task5 (String text5) {
 
-        StringBuilder builder = new StringBuilder(text);
+        StringBuilder builder = new StringBuilder(text5);
         StringBuilder reversedText = builder.reverse();
 
 //        char[] reversedTextArr = String.valueOf(reversedText).toCharArray();
@@ -116,7 +108,6 @@ public class Main {
             num++;
             length--;
         }
-        String join = String.join(" ", textArrNew);
-        System.out.println("The string reversed word by word is: " + join);
+        return String.join(" ", textArrNew);
     }
 }
